@@ -5,25 +5,25 @@ import java.awt.event.*;
 import java.awt.Color;
 
 //(Board class represents/ creates GUI)
-public class Board implements ActionListener {
+public class Board implements ActionListener {  // <(Board class contains MAIN METHOD)
 
     // =INITILIZIING NON-LOCAL VARIABLES/OBJECTS USED IN BOARD CLASS=
 
     // variables/objects/ array used to create game window:
     static JFrame frame = new JFrame("Hoppers Game!"); 
     static JPanel panel = new JPanel(); 
-    static Square arrayofsqaures[][] = new Square[700][700]; // <(initilizes the 2D array that contains all the coordinates of the squares)
-    static String Icon = "Water.png"; 
+    static Square arrayofsqaures[][] = new Square[700][700]; // <(2D array that contains all the coordinates of the squares)
+    private static String Icon = "Water.png"; 
 
     // objects used to create level selection window:}
-    JFrame Levelselectframe = new JFrame("SELECT A LEVEL"); 
-    JPanel Levelselectpanel = new JPanel(); 
+    private JFrame Levelselectframe = new JFrame("SELECT A LEVEL"); 
+    private JPanel Levelselectpanel = new JPanel(); 
 
     // buttons used in level selection window:
-    static JButton Levelbtn = new JButton();
-    static JButton Levelbtn2 = new JButton();
-    static JButton Levelbtn3 = new JButton();
-    static JButton Levelbtn4 = new JButton();
+    private JButton Levelbtn = new JButton();
+    private JButton Levelbtn2 = new JButton();
+    private JButton Levelbtn3 = new JButton();
+    private JButton Levelbtn4 = new JButton();
 
     public void Levelselection() {
 
@@ -76,6 +76,14 @@ public class Board implements ActionListener {
         // =CLOSE LEVEL SELECTION WINDOW=
         Levelselectframe.setVisible(false);
 
+        // =CREATE GAME WINDOW=
+
+        frame.add(panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(712, 735);
+        frame.setResizable(false);
+        panel.setLayout(null);
+
         // =CALL METHOD THAT CORRESPONDS TO THE BUTTON THE USER PRESSED=
 
         if (e.getSource() == Levelbtn) {
@@ -98,17 +106,10 @@ public class Board implements ActionListener {
 
     // ==========================================================Level 1==========================================================
 
-    // (board# constructor creates 25 instances of square(created in square constructor) to create a 5x5 grid in frame/ the game window)
+    // (board constructor creates 25 instances of square(created in square constructor) to create a 5x5 grid in frame/ the game window)
     public void board() {
 
-        // =CREATE GAME WINDOW=
-        frame.add(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(712, 735);
-        frame.setResizable(false);
-        panel.setLayout(null);
-
-        // =CREATE 5X5 GRID CONSISTING OF 25 INSTANCES OF SQAURE (CREATED IN SQUARE CONSTRUCTOR)=
+        // =CREATE 5X5 GRID CONSISTING OF 25 INSTANCES OF SQUARE (CREATED IN SQUARE CONSTRUCTOR)=
 
         for (int xPosition = 560; xPosition >= 0; xPosition = xPosition - 140) {
 
@@ -140,7 +141,7 @@ public class Board implements ActionListener {
 
             }
         }
-        //// =OPEN LEVEL WINDOW=
+        // =OPEN LEVEL WINDOW=
         frame.setVisible(true);
     }
 
@@ -154,13 +155,6 @@ public class Board implements ActionListener {
     
     // (board# method creates 25 instances of square(created in square constructor) to create a 5x5 grid in frame/ the game window)
     public void board2() {
-
-        // =CREATE GAME WINDOW=
-        frame.add(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(712, 735);
-        frame.setResizable(false);
-        panel.setLayout(null);
 
         // =CREATE 5X5 GRID CONSISTING OF 25 INSTANCES OF SQAURE (CREATED IN SQUARE CONSTRUCTOR)=
 
@@ -193,7 +187,7 @@ public class Board implements ActionListener {
 
             }
         }
-        //// =OPEN LEVEL WINDOW=
+        // =OPEN LEVEL WINDOW=
         frame.setVisible(true);
     }
 
@@ -201,13 +195,6 @@ public class Board implements ActionListener {
     
     // (board# method creates 25 instances of square(created in square constructor) to create a 5x5 grid in frame/ the game window)
     public void board3() {
-
-        // =CREATE GAME WINDOW=
-        frame.add(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(712, 735);
-        frame.setResizable(false);
-        panel.setLayout(null);
 
         // =CREATE 5X5 GRID CONSISTING OF 25 INSTANCES OF SQAURE (CREATED IN SQUARE CONSTRUCTOR)=
 
@@ -240,7 +227,7 @@ public class Board implements ActionListener {
 
             }
         }
-        //// =OPEN LEVEL WINDOW=
+        // =OPEN LEVEL WINDOW=
         frame.setVisible(true);
     }
 
@@ -248,13 +235,6 @@ public class Board implements ActionListener {
     
     // (board# method creates 25 instances of square(created in square constructor) to create a 5x5 grid in frame/ the game window)
     public void board4() {
-
-        // =CREATE GAME WINDOW=
-        frame.add(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(712, 735);
-        frame.setResizable(false);
-        panel.setLayout(null);
 
         // =CREATE 5X5 GRID CONSISTING OF 25 INSTANCES OF SQAURE (CREATED IN SQUARE CONSTRUCTOR)=
 
@@ -288,7 +268,7 @@ public class Board implements ActionListener {
 
             }
         }
-        //// =OPEN LEVEL WINDOW=
+        // =OPEN LEVEL WINDOW=
         frame.setVisible(true);
     }
                     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

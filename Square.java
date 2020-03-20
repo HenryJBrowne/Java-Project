@@ -8,9 +8,8 @@ public class Square implements ActionListener {
 
     // =INITILIZING NON-LOCAL VARIABLES/OBJECTS USED IN BOARD CLASS=
 
-    JButton square = new JButton();
-    // (square button -25 instances of this button created in Board class to create
-    // 5x5 grid)
+    private JButton square = new JButton();
+    // (square button: 25 instances of this button created using Board class to create 5x5 grid)
 
     // variables used to denote a instance of square:
     private int xPosition;
@@ -57,7 +56,7 @@ public class Square implements ActionListener {
 
         if (clickcount == 1) {
 
-            // =SAVE SQAURE + LOCATION ON GRID OF USERS FIRST CLICK=
+            // =SAVE SQUARE + LOCATION ON GRID OF USERS FIRST CLICK=
             click1square = square;
             click1xPosition = xPosition;
             click1yPosition = yPosition;
@@ -88,7 +87,7 @@ public class Square implements ActionListener {
         }
 
 
-        // =DESELECT / UNHIGHLIGHT FROG AND RESET CLICKCOUNTER WHEN SECOND CLICK IS WATER, ANOTHER FROG OR AN ILLEGAL MOVE
+        // =DESELECT / UNHIGHLIGHT FROG AND RESET CLICKCOUNTER WHEN SECOND CLICK IS WATER, ANOTHER FROG OR AN ILLEGAL MOVE=
 
         if (((SquareIcon == ("GreenFrog.png")) | (SquareIcon == ("RedFrog.png")) | (SquareIcon == ("Water.png")))
                 & ((click1peice == ("GreenFrog.png")) & (clickcount == 2))) {
@@ -118,7 +117,7 @@ public class Square implements ActionListener {
             middleX = ((xPosition + click1xPosition) / 2);
             middleY = ((yPosition + click1yPosition) / 2);
 
-            //(seoncd check their is a square in the middle of frist clicked square and second click clicked square)
+            //(second check their is a square in the middle of frist clicked square and second click clicked square)
             if ((middleX % 140 == 0) & (middleY % 140 == 0)) {
 
                 //(third check the square in the middle is a frog)
@@ -141,9 +140,8 @@ public class Square implements ActionListener {
                 }
             } else {
                 deselectfrog(click1peice);
-            }   
-                
-        //(Dont make move and call deselectfrog if players move doesnt pass all the checks / is illegal)    
+            }                 
+        //(Dont make players move and call deselectfrog if players move doesnt pass all the checks / is illegal)    
         }
 
     }
@@ -168,20 +166,20 @@ public class Square implements ActionListener {
     void moveTo(String click1peice, final int Width, final int Length, final int xPosition, final int yPosition,
             final JPanel panel, final JButton square, final JButton click1square) {
 
-        //=SET FIRST CLICKED SQUARE (FROG) TO LILYPAD ICON=
+        // =SET FIRST CLICKED SQUARE (FROG) TO LILYPAD ICON=
 
         final ImageIcon LilyPad = new ImageIcon("LilyPad.png");
         click1square.setIcon(LilyPad);
         Board.arrayofsqaures[click1xPosition][click1yPosition].SquareIcon = "LilyPad.png";
 
-        //=SET SECOND CLICKED SQUARE (LILYPAD) TO FROG ICON (FIRST CLICKED SQUARE ICON)=
+        // =SET SECOND CLICKED SQUARE (LILYPAD) TO FROG ICON (FIRST CLICKED SQUARE ICON)=
 
         final ImageIcon Image = new ImageIcon(click1peice);
         square.setIcon(Image);
         SquareIcon = click1peice;
 
 
-        //=CALL METHOD TO CHECK IF USER HAS WON=
+        // =CALL METHOD TO CHECK IF USER HAS WON=
         checkifwon();
     }
 
