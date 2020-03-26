@@ -207,7 +207,7 @@ public class Square implements ActionListener {
 
             Board.frame.setVisible(false);
 
-            final JFrame frame2 = new JFrame("WIN");
+            final JFrame frame2 = new JFrame("WINNER");
             JTextField WIN = new JTextField("YOU WIN!");
             WIN.setEditable(false);
             frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -215,6 +215,7 @@ public class Square implements ActionListener {
             frame2.add(WIN);
             frame2.setResizable(false);
             frame2.setVisible(true);
+    
         }
 
     }
