@@ -1,11 +1,9 @@
 
 // =IMPORT ALL BUILT IN PACKAGES USED=
 import javax.swing.*;
-import java.awt.event.*;
-import java.awt.Color;
 
 //(Board class represents/ creates GUI)
-public class Board implements ActionListener {  // <(Board class contains MAIN METHOD)
+public class Board{     // <(Board class contains MAIN METHOD)
 
     // =INITILIZIING NON-LOCAL VARIABLES/OBJECTS USED IN BOARD CLASS=
 
@@ -15,98 +13,10 @@ public class Board implements ActionListener {  // <(Board class contains MAIN M
     static Square arrayofsqaures[][] = new Square[700][700]; // <(2D array that contains all the coordinates of the squares)
     private static String Icon = "Water.png"; 
 
-    // objects used to create level selection window:}
-    private JFrame Levelselectframe = new JFrame("SELECT A LEVEL"); 
-    private JPanel Levelselectpanel = new JPanel(); 
-
-    // buttons used in level selection window:
-    private JButton Levelbtn = new JButton();
-    private JButton Levelbtn2 = new JButton();
-    private JButton Levelbtn3 = new JButton();
-    private JButton Levelbtn4 = new JButton();
-
-    public void Levelselection() {
-
-        // =CREATE LEVEL SELECTION WINDOW=
-
-        Levelselectframe.add(Levelselectpanel);
-        Levelselectframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    // <(exits application when window is closed by user)
-        Levelselectframe.setSize(600, 200);
-        Levelselectframe.setResizable(false);
-        Levelselectpanel.setLayout(null);       // <(allowing button positions to be set manually)
-
-        // =ADD LEVEL 1 BUTTON=
-        Levelbtn.setLocation(100, 40);
-        Levelbtn.setSize(80, 80);
-        Levelbtn.setText("Level 1");
-        Levelselectpanel.add(Levelbtn);
-        Levelbtn.addActionListener(this);
-
-        // =ADD LEVEL 2 BUTTON=
-        Levelbtn2.setLocation(200, 40);
-        Levelbtn2.setSize(80, 80);
-        Levelbtn2.setText("Level 2");
-        Levelselectpanel.add(Levelbtn2);
-        Levelbtn2.setBackground(Color.yellow);
-        Levelbtn2.addActionListener(this);
-
-        // =ADD LEVEL 3 BUTTON=
-        Levelbtn3.setLocation(300, 40);
-        Levelbtn3.setSize(80, 80);
-        Levelbtn3.setText("Level 3");
-        Levelselectpanel.add(Levelbtn3);
-        Levelbtn3.setBackground(Color.yellow);
-        Levelbtn3.addActionListener(this);
-
-        // =ADD LEVEL 4 BUTTON=
-        Levelbtn4.setLocation(400, 40);
-        Levelbtn4.setSize(80, 80);
-        Levelbtn4.setText("Level 4");
-        Levelselectpanel.add(Levelbtn4);
-        Levelbtn4.setBackground(Color.yellow);
-        Levelbtn4.addActionListener(this);
-
-        // =OPEN LEVEL SELECTION WINDOW=
-        Levelselectframe.setVisible(true);
-    }
-
-    // (method called when a square button is pressed)
-    public void actionPerformed(ActionEvent e) {
-
-        // =CLOSE LEVEL SELECTION WINDOW=
-        Levelselectframe.setVisible(false);
-
-        // =CREATE GAME WINDOW=
-
-        frame.add(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(712, 735);
-        frame.setResizable(false);
-        panel.setLayout(null);
-
-        // =CALL METHOD THAT CORRESPONDS TO THE BUTTON THE USER PRESSED=
-
-        if (e.getSource() == Levelbtn) {
-            final Board board1 = new Board();
-            board1.board();
-        }
-        if (e.getSource() == Levelbtn2) {
-            final Board board2 = new Board();
-            board2.board2();
-        }
-        if (e.getSource() == Levelbtn3) {
-            final Board board3 = new Board();
-            board3.board3();
-        }
-        if (e.getSource() == Levelbtn4) {
-            final Board board4 = new Board();
-            board4.board4();
-        }
-    }
-
+    
     // ==========================================================Level 1==========================================================
 
-    // (board constructor creates 25 instances of square(created in square constructor) to create a 5x5 grid in frame/ the game window)
+    // (board# method creates 25 instances of square(created in square constructor) to create a 5x5 grid in frame/ the game window)
     public void board() {
 
         // =CREATE 5X5 GRID CONSISTING OF 25 INSTANCES OF SQUARE (CREATED IN SQUARE CONSTRUCTOR)=
@@ -279,10 +189,18 @@ public class Board implements ActionListener {  // <(Board class contains MAIN M
 
     public static void main(final String arg[]) { // (main method / start of program!)
 
-        // start of program calls levelselection ---------------------------------------+
-        //                                                                              |
-        Board start = new Board();// (creates instance to call non-static method)       |
-        start.Levelselection(); // <----------------------------------------------------+
+        // =CREATE GAME WINDOW=
+
+        frame.add(panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(712, 735);
+        frame.setResizable(false);
+        panel.setLayout(null);
+
+        // Start of program calls levelselection -------------------------------------------+
+        //                                                                                  |
+        Levels start = new Levels(0,"");// <(creates instance to call non-static method)    |
+        start.Levelselection(); // <--------------------------------------------------------+
 
     }
 

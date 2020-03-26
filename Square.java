@@ -42,7 +42,6 @@ public class Square implements ActionListener {
         xPosition = x;
         yPosition = y;
         SquareIcon = image;
-
     }
 
     // (method called when a square button is pressed)
@@ -60,7 +59,6 @@ public class Square implements ActionListener {
             click1square = square;
             click1xPosition = xPosition;
             click1yPosition = yPosition;
-
         }
 
         // (dont count first click (reset clickcount) if first click if a lilypad)
@@ -83,7 +81,6 @@ public class Square implements ActionListener {
             final ImageIcon Image = new ImageIcon("RedFrog2.png");
             square.setIcon(Image);
             click1peice = "RedFrog.png";
-
         }
 
 
@@ -105,7 +102,7 @@ public class Square implements ActionListener {
             clickcount = 0;
         }
 
-
+        
         // =ENSUREING LEGAL MOVES!=
         
         //(first check if first clicked square (click1peice) is a green frog or red frog and second clicked square (SquareIcon) is a lily pad)
@@ -117,8 +114,8 @@ public class Square implements ActionListener {
             middleX = ((xPosition + click1xPosition) / 2);
             middleY = ((yPosition + click1yPosition) / 2);
 
-            //(second check their is a square in the middle of frist clicked square and second click clicked square)
-            if ((middleX % 140 == 0) & (middleY % 140 == 0)) {
+            //(second check their is a square in the middle of frist clicked square and second click clicked square
+            if ((middleX % 140 == 0) & (middleY % 140 == 0)){
 
                 //(third check the square in the middle is a frog)
                 if ((Board.arrayofsqaures[middleX][middleY].GetSquareIcon() == "GreenFrog.png")
